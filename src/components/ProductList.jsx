@@ -5,7 +5,7 @@ const ProductList = () => {
 
     const [productData,setProductData] = useState(smartphones);
 
-    const brands =['samsung','OnePlus','Apple',]
+    const brands =['samsung','OnePlus','Apple','moto']
 
     const displayProducts = () => {
         return productData.map((phone) => {
@@ -47,19 +47,32 @@ const ProductList = () => {
             <div className='container py-5'>
                 <h1 className='text-center'>Product List Page</h1>
                 <input  onChange ={searchProduct} type="text" className='form-control form-control-lg' placeholder = 'search product Name...' />
-                <select onChange={filterBrands}>
+                {/* <select onChange={filterBrands}>
+                    {brands.map((brand) => (
+                        <option value={brand}>{brand}</option>
+                    ))}
+
+                </select> */}
+            
+            </div>
+        </header>
+
+        <div className='row'>
+            <div className='col-md-2'>
+            <select onChange={filterBrands}>
                     {brands.map((brand) => (
                         <option value={brand}>{brand}</option>
                     ))}
 
                 </select>
-            
             </div>
-        </header>
-        <div className='container'>
+
+        <div className='col-md-10'>
             <div className='row'>
                 {displayProducts()}
             </div>
+        </div>
+
 
         </div>
         </div>
