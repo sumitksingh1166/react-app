@@ -1,11 +1,35 @@
+// 
 import React from 'react'
 
-const SignUp = () => {
+const Signup = () => {
   return (
-    <div>
-        <h1>SignUp Page</h1>
+    <div className='container d-flex justify-content-center mt-5 text-white '>
+    <div className='card col-md-4 fw-bold bg-info text-white'>
+      <div className='card-header'>
+        <h1 className='text-center'>SIGNUP</h1>
+      </div>
+      <div className='card-body fw-bold text-center'>
+        <label htmlFor="Email"> Email </label> <br />
+        <input type="email" />
+
+        <br /> <br />
+
+        <label htmlFor="Password"> Password </label> <br />
+        <input type="text" />
+
+        <br /><br />
+
+        <label htmlFor="Password"> Confirm Password </label> <br />
+        <input type="password" />
+
+        <br /><br />
+
+        <button className='mybtn bg-transparent text-white rounded-3'>SIGNUP</button>
+
+      </div>
+    </div>
     </div>
   )
 }
 
-export default SignUp
+export default Signup
