@@ -42,7 +42,7 @@ const ProductList = () => {
 
 
     return (
-        <div>
+        <div className='list-back'>
         <header className='bg-body-secondary'>
             <div className='container py-5'>
                 <h1 className='text-center'>Product List Page</h1>
@@ -58,17 +58,32 @@ const ProductList = () => {
         </header>
 
         <div className='row'>
-            <div className='col-md-2'>
-            <select onChange={filterBrands}>
+            <div className='col-md-3'>
+                <div className='card mt-3 marginLeft=4'>
+                    <div className='card-body height=vh-100'>
+                        <h1 className='text-center'>Categories</h1>
+                        <hr />
+                        <select onChange={filterBrands}>
                     {brands.map((brand) => (
                         <option value={brand}>{brand}</option>
                     ))}
 
-                </select>
+                </select> 
+
+
+                    </div>
+
+                </div>
+            {/* <select onChange={filterBrands}>
+                    {brands.map((brand) => (
+                        <option value={brand}>{brand}</option>
+                    ))}
+
+                </select> */}
             </div>
 
-        <div className='col-md-10'>
-            <div className='row'>
+        <div className='col-md-9'>
+            <div className='row md-4'>
                 {displayProducts()}
             </div>
         </div>

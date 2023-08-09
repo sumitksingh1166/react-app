@@ -56,7 +56,12 @@ const Navbar = () => {
                                 product list
                             </NavLink>
                         </li>
-                        <li className="nav-item dropdown">
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/chatbox">
+                                Chat-Box
+                            </NavLink>
+                        </li>
+                        {/* <li className="nav-item dropdown">
                             <a
                                 className="nav-link dropdown-toggle"
                                 href="#"
@@ -72,12 +77,12 @@ const Navbar = () => {
                                         Action
                                     </a>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a className="dropdown-item" href="#">
                                         Another action
                                     </a>
-                                </li>
-                                <li>
+                                </li> */} 
+                                {/* <li>
                                     <hr className="dropdown-divider" />
                                 </li>
                                 <li>
@@ -86,12 +91,12 @@ const Navbar = () => {
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                        <li className="nav-item">
+                        </li> */}
+                        {/* <li className="nav-item">
                             <a className="nav-link disabled" aria-disabled="true">
                                 Disabled
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
                     <form className="d-flex" role="search">
                         <input

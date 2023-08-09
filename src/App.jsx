@@ -10,15 +10,16 @@ import EventHandling from './components/EventHandling';
 import StateManagement from './components/StateManagement';
 import Todolist from './components/TodoList';
 import ProductList from './components/ProductList';
+import ChatBox from './components/ChatBox';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
 
-        <Link to='/home'>Home</Link>
+        {/* <Link to='/home'>Home</Link>
       <Link to='/signup'>SignUp</Link>
-      <Link to='/login'>Login</Link> 
+      <Link to='/login'>Login</Link>  */}
         <Navbar />
         <Routes>
           <Route element={<Home />} path='home' />
@@ -29,6 +30,7 @@ function App() {
           <Route element={<StateManagement />} path='state' /> 
           <Route element={<Todolist />} path='todolist' /> 
           <Route element={<ProductList />} path='list' /> 
+          <Route element={<ChatBox />} path='chatbox' /> 
           
 
 
