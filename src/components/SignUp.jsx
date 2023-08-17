@@ -97,7 +97,7 @@ const Signup = () => {
 
               <div>
                 <input value="text" type="checkbox" />
-                <span>Yes i accept the <a href="#">Terms of Services</a> and Privacy Policy</span>
+                <span>Yes i accept the <a href="#">Terms of Services</a> and Privacy</span>
               </div>
 
 
