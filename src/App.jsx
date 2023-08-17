@@ -10,6 +10,9 @@ import StateManagement from './components/StateManagement';
 import Todolist from './components/TodoList';
 import ProductList from './components/ProductList';
 import ChatBox from './components/ChatBox';
+import Blog from './components/Blog';
+
+
 
 function App() {
   return (
@@ -31,6 +34,7 @@ function App() {
           <Route element={<Todolist />} path='todolist' /> 
           <Route element={<ProductList />} path='list' /> 
           <Route element={<ChatBox />} path='chatbox' /> 
+          <Route element={<Blog />} path='blog' /> 
           
 
 
