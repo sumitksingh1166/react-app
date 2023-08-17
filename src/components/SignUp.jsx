@@ -1,57 +1,102 @@
-import { useFormik } from "formik";
-import React from "react";
-import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
-const LoginSchema = Yup.object().shape({
-  // firstName: Yup.string()
-  //   .min(2, 'Too Short!')
-  //   .max(50, 'Too Long!')
-  //   .required('Required'),
-  // lastName: Yup.string()
-  //   .min(2, 'Too Short!')
-  //   .max(50, 'Too Long!')
-  //   .required('Required'),
-  email: Yup.string().email('Invalid email').required(' Email is Required'),
-  password: Yup.string().required('password is Required')
-});
+const Signup = () => {
 
 
-const Login = () => {
 
-  //Initializing formik
-  const loginForm = useFormik({
+  const navigate = useNavigate();
+
+  const signupForm = useFormik({
     initialValues: {
+      name: "",
       email: "",
-      password: ""
+      password: "",
+      age: ""
     },
-
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       console.log(values);
-      //write code to submit form to server
-    },
 
-    validationSchema: LoginSchema
+      const res = await fetch('http://localhost:5000/user/add', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
 
+      console.log(res.status);
+
+      if (res.status === 200) {
+        Swal.fire({
+          icon: 'success',
+          title: 'WellDone!',
+          text: 'Registered Successfully 😎'
+        })
+        navigate('/login');
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Something went wrong'
+        })
+      }
+
+      // write code to submit form to server
+    }
   });
 
-
-
   return (
-    <div>
-      <div className="w-25">
-        <div className="card">
+
+
+
+
+
+    <div style={{
+      backgroundImage: `url("/abcd.jpg")`,
+      backgroundSize: 'cover',
+      minHeight: '100vh',
+
+
+    }}>
+      <div className="w-25 container d-flex justify-content-center">
+        <div className="card mt-4 mb-4">
           <div className="card-body">
-            <h3 className="text-center">Login Form</h3>
+            <h3 className="text-center">Sign-up Form</h3>
             <hr />
 
-            <form onSubmit={loginForm.handleSubmit}>
-              <label htmlFor="">Email Address</label>
-              <span style={{ color: 'red', fontSize: '0.7em', marginLeft: 10 }}>{loginForm.errors.email}</span>
-              <input type="email" className="form-control mb-3" name="email" onChange={loginForm.handleChange} value={loginForm.email} />
+            <form onSubmit={signupForm.handleSubmit}>
+              <label htmlFor="">Name</label>
+              <span style={{ color: 'red', fontSize: '0.7em', marginLeft: 10 }}>{signupForm.errors.name}</span>
+              <input type="text" className="form-control mb-3" name="name" onChange={signupForm.handleChange} value={signupForm.values.name} />
 
-              <label htmlFor="">Password</label>
-              <span style={{ color: 'red', fontSize: '0.7em', marginLeft: 10 }}>{loginForm.errors.password}</span>
-              <input type="password" className="form-control mb-3" name="password" onChange={loginForm.handleChange} value={loginForm.password} />
+              <label htmlFor="">Email Address</label>
+              <span style={{ color: 'red', fontSize: '0.7em', marginLeft: 10 }}>{signupForm.errors.email}</span>
+              <input type="email" className="form-control mb-3" name="email" onChange={signupForm.handleChange} value={signupForm.values.email} />
+
+              <label htmlFor=""> Creating Password</label>
+              <span style={{ color: 'red', fontSize: '0.7em', marginLeft: 10 }}>{signupForm.errors.password}</span>
+              <input type="password" className="form-control mb-3" name="password" onChange={signupForm.handleChange} value={signupForm.values.password} />
+
+              <label htmlFor=""> Confirm Password</label>
+              <span style={{ color: 'red', fontSize: '0.7em', marginLeft: 10 }}>{signupForm.errors.password}</span>
+              <input type="password" className="form-control mb-3" name="password" onChange={signupForm.handleChange} value={signupForm.values.password} />
+
+              <label htmlFor="">Age</label>
+              <span style={{ color: 'red', fontSize: '0.7em', marginLeft: 10 }}>{signupForm.errors.age}</span>
+              <input type="number" className="form-control mb-3" name="age" onChange={signupForm.handleChange} value={signupForm.values.age} />
+
+              {/* <input value="test" type="checkbox" onChange={handleChange} /> */}
+              {/* apply check box */}
+
+              <div>
+                <input value="text" type="checkbox" />
+                <span><a href="Yes i accept the Terms of Services and Privacy Policy"></a> </span>
+              </div>
+
+
 
               <button className="btn btn-primary w-100 mt-5">Submit</button>
             </form>
@@ -60,6 +105,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Login;
+export default Signup;

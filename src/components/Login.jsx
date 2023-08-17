@@ -37,9 +37,15 @@ const Login = () => {
 
 
   return (
-    <div>
-      <div className="w-25">
-        <div className="card">
+    <div style={{
+      backgroundImage: `url("/abcde.jpg")`,
+      backgroundSize: 'cover',
+      minHeight: '100vh',
+
+
+    }}>
+      <div className="w-25 container d-flex justify-content-center">
+        <div className="card mt-5">
           <div className="card-body">
             <h3 className="text-center">Login Form</h3>
             <hr />
@@ -53,7 +59,7 @@ const Login = () => {
               <span style={{color: 'red',fontSize:'0.7em', marginLeft:10}}>{ loginForm.errors.password}</span>
               <input type="password" className="form-control mb-3" name="password" onChange={loginForm.handleChange} value ={loginForm.password} />
 
-              <button className="btn btn-primary w-100 mt-5">Submit</button>
+              <button className="btn btn-primary w-100 mt-5">Login</button>
             </form>
           </div>
         </div>

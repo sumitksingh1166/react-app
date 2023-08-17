@@ -5,7 +5,6 @@ import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Navbar from './components/Navbar';
-import Signuppage from './components/Signuppage';
 import EventHandling from './components/EventHandling';
 import StateManagement from './components/StateManagement';
 import Todolist from './components/TodoList';
@@ -25,7 +24,8 @@ function App() {
           <Route element={<Home />} path='home' />
           <Route element={<Home />} path='/' />
           <Route element={<Login />} path='login' />
-          <Route element={<SignUp />} path='signup' /> 
+          <Route element={<SignUp />} path='Signup' />
+          
           <Route element={<EventHandling />} path='event' /> 
           <Route element={<StateManagement />} path='state' /> 
           <Route element={<Todolist />} path='todolist' /> 

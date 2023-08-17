@@ -10,7 +10,7 @@ const Home = () => {
     
     }}>
         
-            <h1 className='text-center mb-4' style={{color: 'white'}}>Welcome to HomePage</h1>
+            <h1 className='text-center mb-4' style={{color: 'white'}}>Welcome to Homepage</h1>
             <hr  style={{color:'white'}}/>
             
         <h1 className='myclass text-center'>My React app</h1>
