@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 const Signup = () => {
 
-
+  
 
   const navigate = useNavigate();
 
@@ -16,6 +16,9 @@ const Signup = () => {
       password: "",
       age: ""
     },
+
+    
+
     onSubmit: async (values) => {
       console.log(values);
 
@@ -93,12 +96,14 @@ const Signup = () => {
 
               <div>
                 <input value="text" type="checkbox" />
-                <span>Yes i accept the <a href="Terms of Services "></a> and Privacy Policy</span>
+                <span>Yes i accept the <a href="#">Terms of Services</a> and Privacy Policy</span>
               </div>
 
 
 
-              <button className="btn btn-primary w-100 mt-5">Submit</button>
+              <button className="btn btn-primary w-100 mt-5">Sign up</button>
+
+              <span>Already Registered?<a href="http://localhost:3000/login">login</a></span>
             </form>
           </div>
         </div>
