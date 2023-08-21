@@ -11,6 +11,7 @@ import Todolist from './components/TodoList';
 import ProductList from './components/ProductList';
 import ChatBox from './components/ChatBox';
 import Blog from './components/Blog';
+import ManageUser from './components/ManageUser';
 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route element={<ProductList />} path='list' /> 
           <Route element={<ChatBox />} path='chatbox' /> 
           <Route element={<Blog />} path='blog' /> 
+          <Route element={<ManageUser />} path='manage' /> 
           
 
 

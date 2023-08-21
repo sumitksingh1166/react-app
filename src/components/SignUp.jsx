@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
 import React from 'react'
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -9,6 +10,10 @@ const Signup = () => {
   
 
   const navigate = useNavigate();
+
+
+  const [selImg,setSelImg] = useState('');
+
 
   const signupForm = useFormik({
     initialValues: {
@@ -20,8 +25,13 @@ const Signup = () => {
 
     
 
-    onSubmit: async (values) => {
+    onSubmit: async (values, {resetForm,setSubmitting }) => {
+
+      values.avatar = selImg;
+
       console.log(values);
+
+      setSubmitting(true);
 
       const res = await fetch('http://localhost:5000/user/add', {
         method: 'POST',
@@ -32,6 +42,7 @@ const Signup = () => {
       })
 
       console.log(res.status);
+      setSubmitting(false);
 
       if (res.status === 200) {
         Swal.fire({
@@ -52,6 +63,30 @@ const Signup = () => {
     }
   });
 
+  const uploadFile =async (e)=>{
+    const file=e.target.files[0];
+    setSelImg(file.name);
+
+    const fd = new FormData();
+    fd.append('myfile',file);
+
+    const res = await fetch('http://localhost:5000/util/uploadfile',{
+      method:'POST',
+      body:fd,
+    });
+  
+
+  console.log(res.status);
+
+  if(res.status===200){
+    console.log('File uploaded successfully');
+  }else{
+    console.log('File upload failed');
+  }
+}
+
+
+
   return (
 
 
@@ -68,7 +103,7 @@ const Signup = () => {
       <div className="w-25 container d-flex justify-content-center">
         <div className="card mt-4 mb-4">
           <div className="card-body">
-            <h3 className="text-center">Sign-up Form</h3>
+            <h3 className="text-center">SELTOS</h3>
             <hr />
 
             <form onSubmit={signupForm.handleSubmit}>
@@ -100,11 +135,17 @@ const Signup = () => {
                 <span>Yes i accept the <a href="#">Terms of Services</a> and Privacy</span>
               </div>
 
+              <hr />
+
+              <input type="file" onChange={uploadFile}  />
+              <hr />
 
 
-              <button className="btn btn-primary w-100 mt-5">Sign up</button>
+
+              <button disabled={signupForm.isSubmitting} className="btn btn-primary w-100 mt-5">Sign up</button>
 
               <span>Already Registered?<a href="http://localhost:3000/login">login</a></span>
+              
             </form>
           </div>
         </div>
