@@ -12,17 +12,22 @@ import ProductList from './components/ProductList';
 import ChatBox from './components/ChatBox';
 import Blog from './components/Blog';
 import ManageUser from './components/ManageUser';
+import { Toaster } from 'react-hot-toast';
+import UpdateUser from './components/UpdateUser';
+import { UserProvider } from './userContext';
+import Profile from './components/Profile';
 
 
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <Toaster position='top-right' />
 
-        {/* <Link to='/home'>Home</Link>
-      <Link to='/signup'>SignUp</Link>
-      <Link to='/login'>Login</Link>  */}
+      <BrowserRouter>
+        <UserProvider>
+
+        
         <Navbar />
         <Routes>
           <Route element={<Home />} path='home' />
@@ -37,11 +42,14 @@ function App() {
           <Route element={<ChatBox />} path='chatbox' /> 
           <Route element={<Blog />} path='blog' /> 
           <Route element={<ManageUser />} path='manage' /> 
+          <Route element={<UpdateUser />} path='updateuser/:id' /> 
+          <Route element={<Profile />} path='profile' /> 
           
 
 
 
         </Routes>
+        </UserProvider>
 
       </BrowserRouter>
       {/* <Signuppage /> */}

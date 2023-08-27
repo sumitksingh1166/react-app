@@ -42,3 +42,10 @@ opacity: 0.8;
 .card .card-body {
   transform: translateZ(50px);
 }
+
+.bg{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  
+}
